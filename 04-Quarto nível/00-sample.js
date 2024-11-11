@@ -38,3 +38,5 @@ function mostrarResultado(personagem) {
         <strong>Peso:</strong> ${personagem.mass} kg
       </div>`;
 }
+
+document.getElementById.getElementById("buscarButton").addEventListenner("click", buscarPersonagem);
