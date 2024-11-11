@@ -1,8 +1,8 @@
-const nomeUsuario = "Pedro";
-const idadeUsuario = 25;
+const nomeUsuario = "Miqueias";
+const idadeUsuario = 33;
 const usuarioAtivo = true;
 
-function descreverUsuario(nome, idade, ativo) {
+function statusUsuario(nome, idade, ativo) {
     if (ativo) {
         console.log(`${nome} tem ${idade} anos e está ativo.`);
     } else {
@@ -10,4 +10,4 @@ function descreverUsuario(nome, idade, ativo) {
     }
 }
 
-descreverUsuario(nomeUsuario, idadeUsuario, usuarioAtivo);
+statusUsuario(nomeUsuario, idadeUsuario, usuarioAtivo);

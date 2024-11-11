@@ -1,12 +1,12 @@
-function verifyAccess(user) {
-    const hasAccess = true;
+function verificarAcesso(user) {
+    const permissaoAcesso = true;
 
-    if (hasAccess && user.admin) {
-        console.log("Acesso permitido ao administrador.");
+    if  (permissaoAcesso && user.admin) {
+        console.log("Acesso permitido.");
     } else {
-        console.log("Acesso negado.");
+        console.log("Acesso Negado.");
     }
 }
 
-const user = { name: "João", admin: true };
-verifyAccess(user);
+const user = { name: "Tucao", admin: true };
+verificarAcesso(user);

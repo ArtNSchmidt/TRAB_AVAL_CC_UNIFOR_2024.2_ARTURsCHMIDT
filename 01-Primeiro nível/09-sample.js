@@ -5,5 +5,5 @@ class Gestor {
     }
 }
 
-const gestor = new Gestor("Lucas", 40);
+const gestor = new Gestor("Calabreso", 69);
 

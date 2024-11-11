@@ -1,8 +1,8 @@
 class Usuario {
-    constructor(nome, idade, role, dataCriacao, ultimaAtividade, ativo, tentativasLogin, numeroAcessos) {
+    constructor(nome, idade, cargo, dataCriacao, ultimaAtividade, ativo, tentativasLogin, numeroAcessos) {
         this.nome = nome;
         this.idade = idade;
-        this.role = role;
+        this.cargo = cargo;
         this.dataCriacao = dataCriacao;
         this.ultimaAtividade = ultimaAtividade;
         this.ativo = ativo;
@@ -19,7 +19,7 @@ class Usuario {
     }
 
     verificarAcesso() {
-        if (this.role === "admin") {
+        if (this.cargo === "admin") {
             console.log(`${this.nome} pode acessar todas as áreas.`);
         } else {
             console.log(`${this.nome} tem acesso limitado.`);
@@ -27,11 +27,11 @@ class Usuario {
     }
 }
 
-// Verifica quantos usuários têm a role "admin"
+// Verifica quantos usuários têm a cargo "admin"
 function contarAdmins(usuarios) {
     let numeroAdmins = 0;
     for (let i = 0; i < usuarios.length; i++) {
-        if (usuarios[i].role === "admin") {
+        if (usuarios[i].cargo === "admin") {
             numeroAdmins++;
         }
     }

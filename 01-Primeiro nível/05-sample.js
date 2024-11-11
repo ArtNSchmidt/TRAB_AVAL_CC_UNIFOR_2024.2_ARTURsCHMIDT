@@ -1,6 +1,6 @@
-const pessoa1 = "João";
-const pessoa2 = "Ana";
-const pessoa3 = "Carlos";
+const pessoa1 = "Mullet";
+const pessoa2 = "Gustavo";
+const pessoa3 = "Elisson";
 
 function exibirNomes(nome1, nome2, nome3) {
     console.log(nome1);
@@ -8,4 +8,4 @@ function exibirNomes(nome1, nome2, nome3) {
     console.log(nome3);
 }
 
-exibirNomes(pessoa1, pessoa2, pessoa3);
+exibir(pessoa1, pessoa2, pessoa3);

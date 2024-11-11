@@ -1,8 +1,8 @@
 const nome = "Carlos";
 const idade = 32;
 
-function exibirInformacoes(nome, idade) {
+function status(nome, idade) {
     console.log(`${nome} tem ${idade} anos.`);
 }
 
-exibirInformacoes(nome, idade);
+status(nome, idade);

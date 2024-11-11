@@ -1,7 +1,7 @@
-const pessoa = { nome: "Maria", idade: 28 };
+const pessoa = { nome: "Jussisqueia", idade: 28 };
 
-function maiorDeIdade(pessoa) {
+function deMaior(pessoa) {
     return pessoa.idade >= 18;
 }
 
-console.log(maiorDeIdade(pessoa));
+console.log(deMaior(pessoa));

@@ -1,10 +1,10 @@
 const usuario = {
-    nome: "João",
-    idade: 25
+    nome: "Jonas",
+    idade: 23
 };
 
-function exibirInformacoesDoUsuario(usuario) {
+function statusUsuario(usuario) {
     console.log(`${usuario.nome} tem ${usuario.idade} anos.`);
 }
 
-exibirInformacoesDoUsuario(usuario);
+statusUsuario(usuario);
