@@ -1,16 +1,10 @@
-function h(a) {
-    const b = [];
-    for (let i = 0; i < a.length; i++) {
-        if (a[i] % 2 === 0) {
-            b.push(a[i]);
-        }
-    }
-    return b;
+function getEvenNumbers(numbersArray) {
+    return numbersArray.filter(number => number % 2 === 0);
 }
 
-const x = [1, 2, 3, 4, 5, 6];
-const y = h(x);
-console.log(y);
+const inputNumbers = [1, 2, 3, 4, 5, 6];
+const evenNumbers = getEvenNumbers(inputNumbers);
+console.log(evenNumbers);
 
 
 
