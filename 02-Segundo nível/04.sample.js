@@ -1,9 +1,11 @@
+const Senha_Correta = "12345";
+const Maximo_Tentativas = 3;
+
 function tentarLogin(senha) {
     let tentativas = 0;
-    const senhaCorreta = "12345";
 
-    while (tentativas < 3) {
-        if (senha === senhaCorreta) {
+    while (tentativas < Maximo_Tentativas) {
+        if (senha === Senha_Correta) {
             return "Login efetuado com sucesso!";
         }
         tentativas++;
@@ -13,3 +15,4 @@ function tentarLogin(senha) {
 }
 
 console.log(tentarLogin("123"));
+
