@@ -1,23 +1,39 @@
-const Url_Api_Pessoas = "https://swapi.dev/api/people/";
-const Letra_Inicial = "L";
+const urlApiPessoas = "https://swapi.dev/api/people/";
+
+const letraInicial = "L";
 
 async function buscarEFiltrarPessoas() {
     try {
-        const resposta = await fetch(Url_Api_Pessoas);
+        
+        const resposta = await fetch(urlApiPessoas);
+        if (!resposta.ok) {
+            throw new Error("Não foi possível obter os dados das pessoas. Verifique sua conexão ou tente mais tarde.");
+        }
+
+        
         const dados = await resposta.json();
 
-        const pessoasComL = dados.results.filter(pessoa => pessoa.name.startsWith(Letra_Inicial));
+        
+        const pessoasFiltradas = dados.results.filter(pessoa => pessoa.name.startsWith(letraInicial));
 
-        console.log(`Pessoas cujo nome começa com ${Letra_Inicial}:`);
-        pessoasComL.forEach(pessoa => {
-            console.log(pessoa.name);
-        });
+       
+        if (pessoasFiltradas.length > 0) {
+            console.log(`Pessoas cujo nome começa com a letra '${letraInicial}':`);
+            pessoasFiltradas.forEach(pessoa => {
+                console.log(`- ${pessoa.name}`);
+            });
+        } else {
+            console.log(`Nenhuma pessoa encontrada cujo nome começa com a letra '${letraInicial}'.`);
+        }
 
-        console.log(`Total de pessoas encontradas: ${dados.results.length}`);
+     
+        console.log(`Total de pessoas disponíveis na resposta da API: ${dados.results.length}`);
 
     } catch (erro) {
-        console.error("Erro ao buscar pessoas:", erro);
+     
+        console.error("Houve um erro ao buscar as pessoas:", erro.message);
     }
 }
+
 
 buscarEFiltrarPessoas();

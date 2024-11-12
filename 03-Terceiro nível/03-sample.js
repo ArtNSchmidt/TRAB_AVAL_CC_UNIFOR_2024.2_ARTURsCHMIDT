@@ -1,30 +1,35 @@
-const Url_Api_Planetas = "https://swapi.dev/api/planets/";
-const Limite_Populacao_Grande = 1000000;
-const Id_Planeta_Teste = 1;
+const urlApiPlanetas = "https://swapi.dev/api/planets/";
+const limitePopulacaoGrande = 1000000;
+const idPlanetaTeste = 1;
 
 async function buscarEDetalharPlaneta(idPlaneta) {
     try {
-        const resposta = await fetch(`${Url_Api_Planetas}${idPlaneta}/`);
+        const resposta = await fetch(`${urlApiPlanetas}${idPlaneta}/`);
+                
+        if (!resposta.ok) {
+            throw new Error("Falha ao obter informações do planeta. Tente novamente mais tarde.");
+        }    
         const planeta = await resposta.json();
-
-        const detalhesPlaneta = `
-        Nome: ${planeta.name}
-        Clima: ${planeta.climate}
-        População: ${planeta.population}
-        `;
-
+  
         console.log("Detalhes do Planeta:");
-        console.log(detalhesPlaneta);
-
-        const populacao = parseInt(planeta.population);
-        if (populacao > Limite_Populacao_Grande) {
-            console.log("Este planeta é muito populado.");
+        console.log(`Nome: ${planeta.name}`);
+        console.log(`Clima: ${planeta.climate}`);
+        console.log(`População: ${planeta.population || "Indisponível"}`);
+ 
+        const populacao = parseInt(planeta.population, 10); 
+        if (!isNaN(populacao)) {
+            if (populacao > limitePopulacaoGrande) {
+                console.log("Este planeta tem uma população bastante alta.");
+            } else {
+                console.log("Este planeta tem uma população relativamente pequena.");
+            }
         } else {
-            console.log("Este planeta tem uma população pequena.");
+            console.log("A população deste planeta não foi informada.");
         }
     } catch (erro) {
-        console.error("Erro ao buscar o planeta:", erro);
+       
+        console.error("Ocorreu um erro ao buscar os detalhes do planeta:", erro.message);
     }
 }
+buscarEDetalharPlaneta(idPlanetaTeste);
 
-buscarEDetalharPlaneta(Id_Planeta_Teste);
