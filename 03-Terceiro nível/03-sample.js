@@ -1,6 +1,10 @@
+const Url_Api_Planetas = "https://swapi.dev/api/planets/";
+const Limite_Populacao_Grande = 1000000;
+const Id_Planeta_Teste = 1;
+
 async function buscarEDetalharPlaneta(idPlaneta) {
     try {
-        const resposta = await fetch(`https://swapi.dev/api/planets/${idPlaneta}/`);
+        const resposta = await fetch(`${Url_Api_Planetas}${idPlaneta}/`);
         const planeta = await resposta.json();
 
         const detalhesPlaneta = `
@@ -13,7 +17,7 @@ async function buscarEDetalharPlaneta(idPlaneta) {
         console.log(detalhesPlaneta);
 
         const populacao = parseInt(planeta.population);
-        if (populacao > 1000000) {
+        if (populacao > Limite_Populacao_Grande) {
             console.log("Este planeta é muito populado.");
         } else {
             console.log("Este planeta tem uma população pequena.");
@@ -23,4 +27,4 @@ async function buscarEDetalharPlaneta(idPlaneta) {
     }
 }
 
-buscarEDetalharPlaneta(1);
+buscarEDetalharPlaneta(Id_Planeta_Teste);

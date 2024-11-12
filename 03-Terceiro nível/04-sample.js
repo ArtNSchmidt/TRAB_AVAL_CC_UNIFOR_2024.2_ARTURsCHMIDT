@@ -1,6 +1,10 @@
+const BASE_URL = "https://swapi.dev/api/people/";
+const Limite_Tripulacao_Grande = 100;
+const Id_Personagem_Teste = 1;
+
 async function buscarPersonagemENave(idPersonagem) {
     try {
-        const respostaPersonagem = await fetch(`https://swapi.dev/api/people/${idPersonagem}/`);
+        const respostaPersonagem = await fetch(`${BASE_URL}${idPersonagem}/`);
         const personagem = await respostaPersonagem.json();
 
         if (personagem.starships.length > 0) {
@@ -8,7 +12,7 @@ async function buscarPersonagemENave(idPersonagem) {
             const nave = await respostaNave.json();
 
             const tripulacao = parseInt(nave.crew);
-            if (tripulacao > 100) {
+            if (tripulacao > Limite_Tripulacao_Grande) {
                 console.log(`A nave ${nave.name} é considerada grande com ${tripulacao} tripulantes.`);
             } else {
                 console.log(`A nave ${nave.name} é pequena com ${tripulacao} tripulantes.`);
@@ -22,4 +26,5 @@ async function buscarPersonagemENave(idPersonagem) {
     }
 }
 
-buscarPersonagemENave(1);
+buscarPersonagemENave(Id_Personagem_Teste);
+
